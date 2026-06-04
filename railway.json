@@ -3,5 +3,9 @@
   "deploy": {
     "startCommand": "vendor/bin/heroku-php-apache2 public/",
     "restartPolicyMaxRetries": 5
+  },
+  "environment": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false"
   }
 }

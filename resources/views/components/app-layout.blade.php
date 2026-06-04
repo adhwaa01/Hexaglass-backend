@@ -1,9 +1,5 @@
-@props(['title' => 'Dashboard'])
+@extends('layouts.app', ['title' => $title ?? 'Dashboard'])
 
-@php
-    // Inject title ke layout
-@endphp
-
-<x-layouts.app :title="$title">
+@section('content')
     {{ $slot }}
-</x-layouts.app>
+@endsection
