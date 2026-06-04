@@ -1,1 +1,1 @@
-web: frankenphp run --listen :$PORT public/index.php
+web: php -S 0.0.0.0:$PORT -t public
