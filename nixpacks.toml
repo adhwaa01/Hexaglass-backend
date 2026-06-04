@@ -1,0 +1,15 @@
+# Nixpacks configuration for Railway
+# Specifies Node version for optimal build performance
+
+[nodejs]
+node = "20"
+
+[build]
+# Clear npm cache for faster build
+cmds = [
+  "npm ci --prefer-offline --no-audit",
+  "npm run build",
+  "composer install --no-interaction --no-dev --optimize-autoloader",
+  "php artisan optimize",
+  "php artisan storage:link || true"
+]
