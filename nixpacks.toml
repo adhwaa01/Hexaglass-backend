@@ -1,0 +1,7 @@
+# Railway Nixpacks Configuration
+# This ensures Node.js 20.x is used instead of default 18.x
+
+[nodejs]
+# Specify Node.js version for Railway build
+# Vite requires Node.js 20.19.0 or higher
+node = "20"

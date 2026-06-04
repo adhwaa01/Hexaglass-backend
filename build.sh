@@ -4,16 +4,28 @@
 
 set -e
 
-echo "Building Hexaglass application..."
+echo "🔧 Building Hexaglass application..."
+echo "Node version: $(node --version)"
+echo "npm version: $(npm --version)"
 
 # Install PHP dependencies
+echo "📦 Installing PHP dependencies..."
 composer install --no-interaction --optimize-autoloader --no-dev
 
-# Install and build Node dependencies
-npm install
+# Install Node dependencies with clean install
+echo "📦 Installing Node dependencies..."
+npm ci --prefer-offline --no-audit
+
+# Build frontend assets
+echo "🔨 Building frontend assets..."
 npm run build
 
 # Create symbolic link for storage
+echo "🔗 Creating storage symbolic link..."
 php artisan storage:link || true
 
-echo "Build complete!"
+# Optimize Laravel
+echo "⚡ Optimizing Laravel..."
+php artisan optimize
+
+echo "✅ Build completed successfully!"
